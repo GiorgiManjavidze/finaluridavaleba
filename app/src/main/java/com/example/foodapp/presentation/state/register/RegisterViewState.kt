@@ -1,0 +1,11 @@
+package com.example.foodapp.presentation.state.register
+
+import com.example.foodapp.data.common.Resource
+import com.google.firebase.auth.FirebaseUser
+
+data class RegisterViewState(
+    val resource: Resource<FirebaseUser>?,
+    val isLoading: Boolean = false,
+    val errorMessage: String? = null
+)
+

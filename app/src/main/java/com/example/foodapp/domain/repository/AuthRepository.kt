@@ -1,6 +1,6 @@
 package com.example.foodapp.domain.repository
 
-import com.example.foodapp.data.Resource
+import com.example.foodapp.data.common.Resource
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 

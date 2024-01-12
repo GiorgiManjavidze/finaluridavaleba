@@ -7,4 +7,9 @@
     <string name="password">password</string>
     <string name="login">Login</string>
     <string name="or">Or</string>
+    <string name="home">Home</string>
+    <string name="favourites">Favourites</string>
+    <string name="profile">Profile</string>
+    <string name="extended_ingredients">Extended Ingredients</string>
+    <string name="search">Search</string>
 </resources>
