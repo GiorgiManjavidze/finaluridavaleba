@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@color/actionBarBackgroundColor"
+        android:padding="15dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivRecipePhoto"
@@ -26,6 +27,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/custom_shape" />
 
+
+
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -33,9 +37,63 @@
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:textSize="15sp"
+            android:textColor="@color/white"
             tools:text="Mac &amp; Cheese"
-
+            android:fontFamily="@font/montserrat_subrayada"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/heart_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/number_of_likes"
+            app:srcCompat="@drawable/ic_heart"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/heart_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/heart_imageView"
+            app:layout_constraintStart_toStartOf="@+id/heart_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/heart_imageView"
+            tools:text="160" />
+
+        <ImageView
+            android:id="@+id/clock_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/clock_textView"
+            app:layout_constraintStart_toStartOf="@+id/clock_textView"
+            app:layout_constraintTop_toTopOf="@+id/heart_imageView"
+            app:srcCompat="@drawable/ic_clock"
+            app:tint="@color/white"
+            android:contentDescription="@string/time_needed" />
+
+        <TextView
+            android:id="@+id/clock_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            tools:text="5"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            app:layout_constraintStart_toEndOf="@+id/heart_textView"
+            app:layout_constraintTop_toBottomOf="@+id/clock_imageView" />
+
+
+        </LinearLayout>
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
