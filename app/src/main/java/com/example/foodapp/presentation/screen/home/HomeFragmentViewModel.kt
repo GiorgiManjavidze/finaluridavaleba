@@ -3,7 +3,7 @@ package com.example.foodapp.presentation.screen.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.data.common.ResourceApi
-import com.example.foodapp.domain.use_case.recipe.RecipesUseCase
+import com.example.foodapp.domain.remote.use_case.recipe.RecipesUseCase
 import com.example.foodapp.presentation.event.home.HomeFragmentEvents
 import com.example.foodapp.presentation.event.home.HomeNavigationEvents
 import com.example.foodapp.presentation.mapper.toPresentation
@@ -34,10 +34,11 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
                 is HomeFragmentEvents.ResetErrorMessage -> updateErrorMessage(message = null)
                 is HomeFragmentEvents.FetchRecipesByTitle -> fetchRecipesByTitle(event.title)
                 is HomeFragmentEvents.EditTextClick -> {
-                    _homeUiEvent.emit(HomeNavigationEvents.NavigateToSearch)
+                    updateNavigationEvent(HomeNavigationEvents.NavigateToSearch)
                 }
+
                 is HomeFragmentEvents.ItemClick -> {
-                    _homeUiEvent.emit(HomeNavigationEvents.NavigateToDetails(event.id))
+                    updateNavigationEvent(HomeNavigationEvents.NavigateToDetails(event.id))
                 }
             }
         }
@@ -83,11 +84,15 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
                             )
                         }
                     }
+
                     is ResourceApi.Error -> updateErrorMessage(resource.errorMessage)
                 }
             }
         }
     }
+
+    private suspend fun updateNavigationEvent(events: HomeNavigationEvents) =
+        _homeUiEvent.emit(events)
 
     private fun updateErrorMessage(message: String?) {
         _recipeState.update { currentState -> currentState.copy(errorMessage = message) }

@@ -1,7 +1,7 @@
 package com.example.foodapp.di
 
 import com.example.foodapp.data.remote.repository.AuthRepositoryImpl
-import com.example.foodapp.domain.repository.AuthRepository
+import com.example.foodapp.domain.remote.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

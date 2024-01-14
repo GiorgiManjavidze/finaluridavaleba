@@ -16,9 +16,8 @@
         <action
             android:id="@+id/action_loginFragment_to_userFragment"
             app:destination="@id/userFragment"
-            app:popUpToInclusive="true"
             app:popUpTo="@id/loginFragment"
-            />
+            app:popUpToInclusive="true" />
 
     </fragment>
     <fragment
@@ -34,5 +33,5 @@
         android:id="@+id/userFragment"
         android:name="com.example.foodapp.presentation.screen.containers.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user"/>
+        tools:layout="@layout/fragment_user" />
 </navigation>

@@ -1,7 +1,7 @@
 package com.example.foodapp.di
 
 import com.example.foodapp.data.remote.repository.RecipeRepositoryImpl
-import com.example.foodapp.domain.repository.RecipeRepository
+import com.example.foodapp.domain.remote.repository.RecipeRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

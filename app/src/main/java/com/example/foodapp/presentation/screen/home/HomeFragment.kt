@@ -84,7 +84,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             is HomeNavigationEvents.NavigateToDetails -> {
                 findNavController().navigate(HomeFragmentDirections.toDetailedFragment(event.id))
             }
-            is HomeNavigationEvents.NavigateToSearch -> findNavController().navigate(HomeFragmentDirections.toSearchFragment())
+
+            is HomeNavigationEvents.NavigateToSearch -> findNavController().navigate(
+                HomeFragmentDirections.toSearchFragment()
+            )
         }
     }
 }

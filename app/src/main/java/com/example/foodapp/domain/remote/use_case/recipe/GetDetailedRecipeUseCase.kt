@@ -1,8 +1,8 @@
-package com.example.foodapp.domain.use_case.recipe
+package com.example.foodapp.domain.remote.use_case.recipe
 
 import com.example.foodapp.data.common.ResourceApi
-import com.example.foodapp.domain.model.GetDetailedRecipeInfo
-import com.example.foodapp.domain.repository.RecipeRepository
+import com.example.foodapp.domain.remote.model.GetDetailedRecipeInfo
+import com.example.foodapp.domain.remote.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

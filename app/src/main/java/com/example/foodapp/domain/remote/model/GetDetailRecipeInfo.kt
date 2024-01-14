@@ -1,4 +1,4 @@
-package com.example.foodapp.domain.model
+package com.example.foodapp.domain.remote.model
 
 data class GetDetailedRecipeInfo(
     val aggregateLikes: Int?,

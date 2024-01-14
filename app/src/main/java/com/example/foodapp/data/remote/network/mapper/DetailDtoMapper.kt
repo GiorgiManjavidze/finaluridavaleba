@@ -1,7 +1,7 @@
 package com.example.foodapp.data.remote.network.mapper
 
 import com.example.foodapp.data.remote.network.model.DetailedRecipeInfoDto
-import com.example.foodapp.domain.model.GetDetailedRecipeInfo
+import com.example.foodapp.domain.remote.model.GetDetailedRecipeInfo
 
 
 fun DetailedRecipeInfoDto.toDomain(): GetDetailedRecipeInfo {

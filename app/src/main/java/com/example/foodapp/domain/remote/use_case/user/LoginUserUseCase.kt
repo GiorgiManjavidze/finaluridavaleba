@@ -1,7 +1,7 @@
-package com.example.foodapp.domain.use_case.user
+package com.example.foodapp.domain.remote.use_case.user
 
 import com.example.foodapp.data.common.Resource
-import com.example.foodapp.domain.repository.AuthRepository
+import com.example.foodapp.domain.remote.repository.AuthRepository
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

@@ -5,8 +5,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentLoginBinding
 import com.example.foodapp.presentation.common.base.BaseFragment
 import com.example.foodapp.presentation.common.helper.Listener

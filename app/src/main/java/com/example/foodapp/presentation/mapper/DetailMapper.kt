@@ -1,6 +1,6 @@
 package com.example.foodapp.presentation.mapper
 
-import com.example.foodapp.domain.model.GetDetailedRecipeInfo
+import com.example.foodapp.domain.remote.model.GetDetailedRecipeInfo
 import com.example.foodapp.presentation.model.DetailedRecipeInfo
 
 fun GetDetailedRecipeInfo.GetExtendedIngredient.toPresentation(): DetailedRecipeInfo.ExtendedIngredient {

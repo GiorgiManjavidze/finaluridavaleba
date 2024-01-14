@@ -19,9 +19,11 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
                 R.id.homeIcon -> {
                     navController.navigate(R.id.homeNavigation)
                 }
+
                 R.id.favoritesIcon -> {
                     navController.navigate(R.id.favouritesNavigation)
                 }
+
                 R.id.profileIcon -> {
                     navController.navigate(R.id.profileFragment)
                 }
@@ -31,15 +33,14 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
     }
 
 
-
-
     override fun init() {
         setUpNavGraph()
         handleNavigationBar()
     }
 
     private fun setUpNavGraph() {
-        navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment_main) as NavHostFragment
+        navHostFragment =
+            childFragmentManager.findFragmentById(R.id.nav_host_fragment_main) as NavHostFragment
         navController = navHostFragment.findNavController()
         binding.bottomNavigationView.setupWithNavController(navController)
     }

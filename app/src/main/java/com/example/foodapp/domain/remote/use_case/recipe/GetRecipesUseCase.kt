@@ -1,6 +1,6 @@
-package com.example.foodapp.domain.use_case.recipe
+package com.example.foodapp.domain.remote.use_case.recipe
 
-import com.example.foodapp.domain.repository.RecipeRepository
+import com.example.foodapp.domain.remote.repository.RecipeRepository
 import javax.inject.Inject
 
 class GetRecipesUseCase @Inject constructor(private val recipeRepository: RecipeRepository) {

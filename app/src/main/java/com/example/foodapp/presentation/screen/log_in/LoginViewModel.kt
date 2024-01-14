@@ -3,8 +3,8 @@ package com.example.foodapp.presentation.screen.log_in
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.data.common.Resource
-import com.example.foodapp.domain.use_case.user.UserUseCase
-import com.example.foodapp.domain.use_case.validator.ValidatorUseCase
+import com.example.foodapp.domain.remote.use_case.user.UserUseCase
+import com.example.foodapp.domain.remote.use_case.validator.ValidatorUseCase
 import com.example.foodapp.presentation.event.log_in.LoginFragmentEvents
 import com.example.foodapp.presentation.event.log_in.LoginNavigationEvents
 import com.example.foodapp.presentation.state.log_in.LoginViewState

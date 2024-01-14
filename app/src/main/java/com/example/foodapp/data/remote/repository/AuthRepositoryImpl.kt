@@ -2,7 +2,7 @@ package com.example.foodapp.data.remote.repository
 
 import com.example.foodapp.data.common.Resource
 import com.example.foodapp.data.remote.utils.HandleFirebaseResponse
-import com.example.foodapp.domain.repository.AuthRepository
+import com.example.foodapp.domain.remote.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.example.foodapp.domain.use_case.validator
+package com.example.foodapp.domain.remote.use_case.validator
 
 import javax.inject.Inject
 

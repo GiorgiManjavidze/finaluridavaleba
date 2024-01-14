@@ -1,4 +1,4 @@
-package com.example.foodapp.domain.repository
+package com.example.foodapp.domain.remote.repository
 
 import com.example.foodapp.data.common.Resource
 import com.google.firebase.auth.FirebaseUser

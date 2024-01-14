@@ -15,7 +15,7 @@ class DetailRecyclerAdapter :
 
     inner class DetailViewHolder(private val binding: ItemExtendedIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
-         fun bind(ingredient: DetailedRecipeInfo.ExtendedIngredient) = with(binding) {
+        fun bind(ingredient: DetailedRecipeInfo.ExtendedIngredient) = with(binding) {
             tvAisle.text = ingredient.aisle
             tvConsistency.text = ingredient.consistency
             tvName.text = ingredient.name

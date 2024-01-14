@@ -1,4 +1,4 @@
-package com.example.foodapp.domain.use_case.user
+package com.example.foodapp.domain.remote.use_case.user
 
 import javax.inject.Inject
 

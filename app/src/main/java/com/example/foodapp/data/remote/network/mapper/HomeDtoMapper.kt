@@ -1,7 +1,7 @@
 package com.example.foodapp.data.remote.network.mapper
 
 import com.example.foodapp.data.remote.network.model.SearchedRecipesInfoDto
-import com.example.foodapp.domain.model.GetSearchedRecipesInfo
+import com.example.foodapp.domain.remote.model.GetSearchedRecipesInfo
 
 fun SearchedRecipesInfoDto.toDomain(): GetSearchedRecipesInfo {
     return GetSearchedRecipesInfo(

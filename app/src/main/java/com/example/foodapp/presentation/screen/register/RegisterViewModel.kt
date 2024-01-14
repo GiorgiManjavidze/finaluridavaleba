@@ -3,8 +3,8 @@ package com.example.foodapp.presentation.screen.register
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.data.common.Resource
-import com.example.foodapp.domain.use_case.user.UserUseCase
-import com.example.foodapp.domain.use_case.validator.ValidatorUseCase
+import com.example.foodapp.domain.remote.use_case.user.UserUseCase
+import com.example.foodapp.domain.remote.use_case.validator.ValidatorUseCase
 import com.example.foodapp.presentation.event.register.RegisterFragmentEvents
 import com.example.foodapp.presentation.event.register.RegisterNavigationEvents
 import com.example.foodapp.presentation.state.register.RegisterViewState

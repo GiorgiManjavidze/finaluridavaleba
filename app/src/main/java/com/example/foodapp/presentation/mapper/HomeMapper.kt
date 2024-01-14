@@ -1,6 +1,6 @@
 package com.example.foodapp.presentation.mapper
 
-import com.example.foodapp.domain.model.GetSearchedRecipesInfo
+import com.example.foodapp.domain.remote.model.GetSearchedRecipesInfo
 import com.example.foodapp.presentation.model.SearchedRecipesInfo
 
 
