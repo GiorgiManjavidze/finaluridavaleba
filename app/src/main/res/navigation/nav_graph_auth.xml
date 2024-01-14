@@ -2,124 +2,37 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/authNavigation">
+    android:id="@+id/nav_graph_auth"
+    app:startDestination="@id/loginFragment">
 
-    <navigation
-        android:id="@+id/authNavigation"
-        app:startDestination="@id/loginFragment">
-        <fragment
-            android:id="@+id/loginFragment"
-            android:name="com.example.foodapp.presentation.screen.log_in.LoginFragment"
-            android:label="fragment_login"
-            tools:layout="@layout/fragment_login">
-            <action
-                android:id="@+id/action_loginFragment_to_registerFragment"
-                app:destination="@id/registerFragment" />
-
-
-        </fragment>
-        <fragment
-            android:id="@+id/registerFragment"
-            android:name="com.example.foodapp.presentation.screen.register.RegisterFragment"
-            android:label="fragment_register"
-            tools:layout="@layout/fragment_register">
-            <action
-                android:id="@+id/action_registerFragment_to_loginFragment"
-                app:destination="@id/loginFragment" />
-        </fragment>
-
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.foodapp.presentation.screen.log_in.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_homeNavigation"
-            app:destination="@+id/userNavigation"
-            app:popUpTo="@+id/authNavigation"
-            app:popUpToInclusive="true" />
-    </navigation>
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment"
+            />
 
-    <navigation
-        android:id="@+id/userNavigation"
-        app:startDestination="@id/homeNavigation">
-
-        <navigation
-            android:id="@+id/homeNavigation"
-            app:startDestination="@id/homeFragment">
-
-            <fragment
-                android:id="@+id/homeFragment"
-                android:name="com.example.foodapp.presentation.screen.home.HomeFragment"
-                android:label="home_fragment"
-                tools:layout="@layout/fragment_home">
-
-                <action
-                    android:id="@+id/toDetailedFragment"
-                    app:destination="@+id/detailFragment" />
-
-                <action
-                    android:id="@+id/toSearchFragment"
-                    app:destination="@id/searchFragment" />
-            </fragment>
-
-            <fragment
-                android:id="@+id/detailFragment"
-                android:name="com.example.foodapp.presentation.screen.detail.DetailFragment"
-                android:label="fragment_detail"
-                tools:layout="@layout/fragment_detail">
-
-                <argument
-                    android:name="id"
-                    app:argType="integer" />
-
-            </fragment>
-
-            <fragment
-                android:id="@+id/searchFragment"
-                android:name="com.example.foodapp.presentation.screen.search.SearchFragment"
-                android:label="fragment_search"
-                tools:layout="@layout/fragment_search">
-                <action
-                    android:id="@+id/searchFragment_to_detailFragment"
-                    app:destination="@id/detailFragment" />
-            </fragment>
-
-
-        </navigation>
-
-
-        <navigation
-            android:id="@+id/favouritesNavigation"
-            app:startDestination="@id/favouritesFragment">
-            <fragment
-                android:id="@+id/favouritesFragment"
-                android:name="com.example.foodapp.presentation.screen.favourite.FavouriteFragment"
-                android:label="fragment_favourite"
-                tools:layout="@layout/fragment_favourite">
-
-                <action
-                    android:id="@+id/favouritesFragment_to_detailsFragment"
-                    app:destination="@id/detailFragment" />
-
-            </fragment>
-
-            <fragment
-                android:id="@+id/detailFragment"
-                android:name="com.example.foodapp.presentation.screen.detail.DetailFragment"
-                android:label="fragment_detail"
-                tools:layout="@layout/fragment_detail">
-
-                <argument
-                    android:name="id"
-                    app:argType="integer" />
-
-            </fragment>
-
-        </navigation>
-
-        <fragment
-            android:id="@+id/profileFragment"
-            android:name="com.example.foodapp.presentation.screen.profile.ProfileFragment"
-            android:label="fragment_profile"
-            tools:layout="@layout/fragment_profile" />
-
-    </navigation>
-
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.foodapp.presentation.screen.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.foodapp.presentation.screen.containers.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user"/>
 </navigation>

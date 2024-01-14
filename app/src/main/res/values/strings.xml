@@ -53,4 +53,7 @@
     <string name="no_favorite_recipes_found">No Favorite Recipes Found</string>
     <string name="description">description</string>
     <string name="title">title</string>
+    <string name="aisle"><b>Meta:</b></string>
+    <string name="consistency"><b>Consistency:</b></string>
+    <string name="original"><b>Original:</b></string>
 </resources>

@@ -12,6 +12,7 @@ buildscript {
     }
     dependencies {
         classpath("com.google.gms:google-services:4.4.0")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.6")
+        classpath("androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin:2.7.6")
+        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:$1.9.22")
     }
 }

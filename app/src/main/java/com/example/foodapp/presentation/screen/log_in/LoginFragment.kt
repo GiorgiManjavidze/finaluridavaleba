@@ -35,9 +35,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
 
         binding.tvRegister.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_loginFragment_to_registerFragment
-            )
+            LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         }
     }
 
@@ -80,15 +78,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun handleNavigationEvents(event: LoginNavigationEvents) {
         when (event) {
-            is LoginNavigationEvents.NavigateToHome -> findNavController().navigate(
-                R.id.userNavigation
-            )
+            is LoginNavigationEvents.NavigateToHome -> {
+                LoginFragmentDirections.actionLoginFragmentToUserFragment()
+            }
 
-            is LoginNavigationEvents.NavigateToRegister -> findNavController().navigate(
-                R.id.action_loginFragment_to_registerFragment
-            )
+            is LoginNavigationEvents.NavigateToRegister -> LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         }
     }
-
 
 }

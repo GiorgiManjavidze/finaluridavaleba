@@ -7,7 +7,7 @@ data class SearchedRecipesInfo(
     val totalResults: Int?,
 ) {
     data class SearchedRecipe(
-        val id: Int?,
+        val id: Int,
         val title: String?,
         val image: String?,
         val imageType: String?,

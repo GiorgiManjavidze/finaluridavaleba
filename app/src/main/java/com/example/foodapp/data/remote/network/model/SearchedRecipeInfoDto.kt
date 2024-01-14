@@ -14,7 +14,7 @@ data class SearchedRecipesInfoDto(
 ) {
     data class SearchedRecipeDto(
         @Json(name = "id")
-        val id: Int?,
+        val id: Int,
         @Json(name = "title")
         val title: String?,
         @Json(name = "image")

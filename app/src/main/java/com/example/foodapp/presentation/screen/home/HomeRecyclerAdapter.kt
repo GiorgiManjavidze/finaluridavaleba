@@ -23,6 +23,8 @@ class HomeRecyclerAdapter :
                 .load(recipe.image)
                 .into(ivRecipePhoto)
             tvTitle.text = recipe.title
+
+            root.setOnClickListener { onClick?.invoke(recipe) }
         }
     }
 

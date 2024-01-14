@@ -10,7 +10,7 @@ fun GetDetailedRecipeInfo.GetExtendedIngredient.toPresentation(): DetailedRecipe
         consistency = consistency,
         id = id,
         image = image,
-        measures = getMeasures.toPresentation(),
+        measures = getMeasures!!.toPresentation(),
         meta = meta,
         name = name,
         nameClean = nameClean,
@@ -22,8 +22,8 @@ fun GetDetailedRecipeInfo.GetExtendedIngredient.toPresentation(): DetailedRecipe
 
 fun GetDetailedRecipeInfo.GetExtendedIngredient.GetMeasures.toPresentation(): DetailedRecipeInfo.ExtendedIngredient.Measures {
     return DetailedRecipeInfo.ExtendedIngredient.Measures(
-        metric = getMetric.toPresentation(),
-        us = getUs.toPresentation()
+        metric = getMetric!!.toPresentation(),
+        us = getUs!!.toPresentation()
     )
 }
 
@@ -62,7 +62,7 @@ fun GetDetailedRecipeInfo.toPresentation(): DetailedRecipeInfo {
         dairyFree = dairyFree,
         diets = diets,
         dishTypes = dishTypes,
-        extendedIngredients = getExtendedIngredients.map { it.toPresentation() },
+        extendedIngredients = getExtendedIngredients!!.map { it!!.toPresentation() },
         gaps = gaps,
         glutenFree = glutenFree,
         healthScore = healthScore,
@@ -90,6 +90,6 @@ fun GetDetailedRecipeInfo.toPresentation(): DetailedRecipeInfo {
         veryHealthy = veryHealthy,
         veryPopular = veryPopular,
         weightWatcherSmartPoints = weightWatcherSmartPoints,
-        winePairing = getWinePairing.toPresentation()
+        winePairing = getWinePairing!!.toPresentation()
     )
 }

@@ -15,7 +15,7 @@ fun DetailedRecipeInfoDto.toDomain(): GetDetailedRecipeInfo {
         dairyFree = dairyFree,
         diets = diets,
         dishTypes = dishTypes,
-        getExtendedIngredients = extendedIngredients.map { it.toDomain() },
+        getExtendedIngredients = extendedIngredients!!.map { it!!.toDomain() },
         gaps = gaps,
         glutenFree = glutenFree,
         healthScore = healthScore,
@@ -43,7 +43,7 @@ fun DetailedRecipeInfoDto.toDomain(): GetDetailedRecipeInfo {
         veryHealthy = veryHealthy,
         veryPopular = veryPopular,
         weightWatcherSmartPoints = weightWatcherSmartPoints,
-        getWinePairing = winePairing.toDomain()
+        getWinePairing = winePairing!!.toDomain()
     )
 }
 
@@ -54,7 +54,7 @@ fun DetailedRecipeInfoDto.ExtendedIngredient.toDomain(): GetDetailedRecipeInfo.G
         consistency = consistency,
         id = id,
         image = image,
-        getMeasures = measures.toDomain(),
+        getMeasures = measures!!.toDomain(),
         meta = meta,
         name = name,
         nameClean = nameClean,
@@ -66,8 +66,8 @@ fun DetailedRecipeInfoDto.ExtendedIngredient.toDomain(): GetDetailedRecipeInfo.G
 
 fun DetailedRecipeInfoDto.ExtendedIngredient.Measures.toDomain(): GetDetailedRecipeInfo.GetExtendedIngredient.GetMeasures {
     return GetDetailedRecipeInfo.GetExtendedIngredient.GetMeasures(
-        getMetric = metric.toDomain(),
-        getUs = us.toDomain()
+        getMetric = metric!!.toDomain(),
+        getUs = us!!.toDomain()
 
     )
 }

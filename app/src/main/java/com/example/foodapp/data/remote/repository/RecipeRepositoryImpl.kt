@@ -21,11 +21,17 @@ class RecipeRepositoryImpl @Inject constructor(
         }.asResource { it.toDomain() }
     }
 
-    override suspend fun getDetailsRecipe(id: Int): Flow<ResourceApi<GetDetailedRecipeInfo>> {
+    override suspend fun getDetailsRecipe(itemId: Int): Flow<ResourceApi<GetDetailedRecipeInfo>> {
         return responseHandler.handleApiCall {
-            service.getDetailsRecipe(id)
+            service.getDetailsRecipe(itemId)
         }.asResource {
             it.toDomain()
         }
+    }
+
+    override suspend fun getRecipeByTitle(title: String): Flow<ResourceApi<GetSearchedRecipesInfo>> {
+        return responseHandler.handleApiCall {
+            service.getRecipes(titleMatch = title)
+        }.asResource { it.toDomain() }
     }
 }

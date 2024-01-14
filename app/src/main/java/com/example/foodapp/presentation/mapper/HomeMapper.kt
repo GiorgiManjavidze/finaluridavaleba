@@ -6,7 +6,7 @@ import com.example.foodapp.presentation.model.SearchedRecipesInfo
 
 fun GetSearchedRecipesInfo.toPresentation(): SearchedRecipesInfo {
     return SearchedRecipesInfo(
-        results = results?.map { it.toPresentation() },
+        results = results.map { it.toPresentation() },
         offset = offset,
         number = number,
         totalResults = totalResults

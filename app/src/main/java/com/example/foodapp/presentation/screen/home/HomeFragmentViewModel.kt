@@ -28,11 +28,21 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
     val homeUiEvent: SharedFlow<HomeNavigationEvents> get() = _homeUiEvent
 
     fun onEvent(event: HomeFragmentEvents) {
-        when (event) {
-            is HomeFragmentEvents.FetchRecipes -> fetchRecipes()
-            is HomeFragmentEvents.ResetErrorMessage -> updateErrorMessage(message = null)
+        viewModelScope.launch {
+            when (event) {
+                is HomeFragmentEvents.FetchRecipes -> fetchRecipes()
+                is HomeFragmentEvents.ResetErrorMessage -> updateErrorMessage(message = null)
+                is HomeFragmentEvents.FetchRecipesByTitle -> fetchRecipesByTitle(event.title)
+                is HomeFragmentEvents.EditTextClick -> {
+                    _homeUiEvent.emit(HomeNavigationEvents.NavigateToSearch)
+                }
+                is HomeFragmentEvents.ItemClick -> {
+                    _homeUiEvent.emit(HomeNavigationEvents.NavigateToDetails(event.id))
+                }
+            }
         }
     }
+
 
     private fun fetchRecipes() {
         viewModelScope.launch {
@@ -48,14 +58,32 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
                                 isLoading = false
                             )
                         }
-                        _homeUiEvent.emit(HomeNavigationEvents.NavigateToDetails)
-
                     }
 
                     is ResourceApi.Error -> {
                         updateErrorMessage(resource.errorMessage)
                     }
+                }
+            }
+        }
+    }
 
+    private fun fetchRecipesByTitle(title: String) {
+        viewModelScope.launch {
+            recipesUseCase.getRecipeByTitle(title).collect { resource ->
+                _recipeState.update { it.copy(isLoading = true) }
+                when (resource) {
+                    is ResourceApi.Success -> {
+                        _recipeState.update { currentState ->
+                            currentState.copy(
+                                recipesList = resource.data.results.map { searchedRecipe ->
+                                    searchedRecipe.toPresentation()
+                                },
+                                isLoading = false
+                            )
+                        }
+                    }
+                    is ResourceApi.Error -> updateErrorMessage(resource.errorMessage)
                 }
             }
         }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeNavigation"
+        android:id="@+id/homeIcon"
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
     <item
-        android:id="@+id/favoritesNavigation"
+        android:id="@+id/favoritesIcon"
         android:icon="@drawable/ic_heart"
         android:title="@string/favourites" />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/profileIcon"
         android:icon="@drawable/ic_profile"
         android:title="@string/profile" />
 </menu>

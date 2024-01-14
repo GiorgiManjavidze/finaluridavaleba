@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.presentation.common.base.BaseFragment
 import com.example.foodapp.presentation.common.helper.Listener
@@ -21,17 +22,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     Listener {
 
     private val viewModel: HomeFragmentViewModel by viewModels()
-    private lateinit var homeRecyclerAdapter: HomeRecyclerAdapter
+    private val homeRecyclerAdapter by lazy { HomeRecyclerAdapter() }
+
+
     override fun init() {
         observers()
         setUpRecycler()
+        listeners()
+
     }
 
     override fun listeners() {
-        homeRecyclerAdapter.onItemClick {
-
+        homeRecyclerAdapter.onItemClick { recipe ->
+            viewModel.onEvent(HomeFragmentEvents.ItemClick(recipe.id))
+        }
+        binding.etSearch.setOnClickListener {
+            viewModel.onEvent(HomeFragmentEvents.EditTextClick)
         }
     }
+
 
     override fun observers() {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -44,14 +53,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-
+                viewModel.homeUiEvent.collect {
+                    handleNavigationEvents(it)
+                }
             }
         }
     }
 
 
     private fun setUpRecycler() = with(binding) {
-        homeRecyclerAdapter = HomeRecyclerAdapter()
         rvRecipes.adapter = homeRecyclerAdapter
         viewModel.onEvent(HomeFragmentEvents.FetchRecipes)
     }
@@ -72,10 +82,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun handleNavigationEvents(event: HomeNavigationEvents) {
         when (event) {
             is HomeNavigationEvents.NavigateToDetails -> {
-
+                findNavController().navigate(HomeFragmentDirections.toDetailedFragment(event.id))
             }
+            is HomeNavigationEvents.NavigateToSearch -> findNavController().navigate(HomeFragmentDirections.toSearchFragment())
         }
     }
-
-
 }
