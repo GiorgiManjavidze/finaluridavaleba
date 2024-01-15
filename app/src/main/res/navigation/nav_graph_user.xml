@@ -42,7 +42,7 @@
             android:label="fragment_search"
             tools:layout="@layout/fragment_search">
             <action
-                android:id="@+id/searchFragment_to_detailFragment"
+                android:id="@+id/toDetailedFragment"
                 app:destination="@id/detailFragment" />
         </fragment>
 

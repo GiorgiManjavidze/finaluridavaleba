@@ -56,4 +56,5 @@
     <string name="aisle"><b>Meta:</b></string>
     <string name="consistency"><b>Consistency:</b></string>
     <string name="original"><b>Original:</b></string>
+    <string name="log_out">Log out</string>
 </resources>

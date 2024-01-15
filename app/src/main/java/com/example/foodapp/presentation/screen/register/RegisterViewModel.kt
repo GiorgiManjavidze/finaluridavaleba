@@ -3,11 +3,14 @@ package com.example.foodapp.presentation.screen.register
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.data.common.Resource
+import com.example.foodapp.domain.remote.model.UserInfo
 import com.example.foodapp.domain.remote.use_case.user.UserUseCase
 import com.example.foodapp.domain.remote.use_case.validator.ValidatorUseCase
 import com.example.foodapp.presentation.event.register.RegisterFragmentEvents
 import com.example.foodapp.presentation.event.register.RegisterNavigationEvents
 import com.example.foodapp.presentation.state.register.RegisterViewState
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,6 +52,7 @@ class RegisterViewModel @Inject constructor(
                             errorMessage = null
                         )
                     }
+                    saveUserInfoToFirebase(email, password)
                     _uiEvent.emit(RegisterNavigationEvents.NavigateToLogin)
                 }
 
@@ -62,6 +66,22 @@ class RegisterViewModel @Inject constructor(
                     }
                 }
             }
+        }
+    }
+
+    private fun saveUserInfoToFirebase(email: String, password: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            val userInfo = UserInfo(email, password)
+            val databaseReference = FirebaseDatabase.getInstance().getReference("users/${user.uid}")
+            databaseReference.setValue(userInfo)
+                .addOnFailureListener { e ->
+                    _registerState.update {
+                        it.copy(
+                            errorMessage = e.message
+                        )
+                    }
+                }
         }
     }
 

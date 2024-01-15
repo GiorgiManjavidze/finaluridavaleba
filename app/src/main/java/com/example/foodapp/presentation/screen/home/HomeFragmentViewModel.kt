@@ -32,7 +32,6 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
             when (event) {
                 is HomeFragmentEvents.FetchRecipes -> fetchRecipes()
                 is HomeFragmentEvents.ResetErrorMessage -> updateErrorMessage(message = null)
-                is HomeFragmentEvents.FetchRecipesByTitle -> fetchRecipesByTitle(event.title)
                 is HomeFragmentEvents.EditTextClick -> {
                     updateNavigationEvent(HomeNavigationEvents.NavigateToSearch)
                 }
@@ -64,28 +63,6 @@ class HomeFragmentViewModel @Inject constructor(private val recipesUseCase: Reci
                     is ResourceApi.Error -> {
                         updateErrorMessage(resource.errorMessage)
                     }
-                }
-            }
-        }
-    }
-
-    private fun fetchRecipesByTitle(title: String) {
-        viewModelScope.launch {
-            recipesUseCase.getRecipeByTitle(title).collect { resource ->
-                _recipeState.update { it.copy(isLoading = true) }
-                when (resource) {
-                    is ResourceApi.Success -> {
-                        _recipeState.update { currentState ->
-                            currentState.copy(
-                                recipesList = resource.data.results.map { searchedRecipe ->
-                                    searchedRecipe.toPresentation()
-                                },
-                                isLoading = false
-                            )
-                        }
-                    }
-
-                    is ResourceApi.Error -> updateErrorMessage(resource.errorMessage)
                 }
             }
         }
