@@ -16,7 +16,7 @@
 
 
 ## Description
-FoodApp is a user-friendly mobile app that leverages the Spoonacular API to bring a delightful cooking experience to users of all skill levels. With an extensive recipe repository, personalized recommendations, and smart shopping features, RecipeHub simplifies meal planning and enhances your culinary journey.
+FoodApp is a user-friendly mobile app that leverages the Spoonacular API to bring a delightful cooking experience to users of all skill levels. With an extensive recipe repository, personalized recommendations, and smart shopping features, FoodApp simplifies meal planning and enhances your culinary journey.
 
 ## Features
 
