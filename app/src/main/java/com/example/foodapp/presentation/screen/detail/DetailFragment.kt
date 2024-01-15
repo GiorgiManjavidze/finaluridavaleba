@@ -1,6 +1,5 @@
 package com.example.foodapp.presentation.screen.detail
 
-import android.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -49,10 +48,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         }
 
         binding.ivFavourite.setOnClickListener {
-           viewLifecycleOwner.lifecycleScope.launch {
-               handleRecipeSaving(getRecipe())
-               isSaved = isSaved.not()
-           }
+            viewLifecycleOwner.lifecycleScope.launch {
+                handleRecipeSaving(getRecipe())
+                isSaved = isSaved.not()
+            }
         }
     }
 
@@ -88,13 +87,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     }
 
     private fun handleRecipeSaving(recipe: FavouriteRecipeEntity) {
-        when(isSaved) {
+        when (isSaved) {
             true -> {
                 viewModel.onEvent(DetailFragmentEvent.RemoveRecipeFromFavourites(recipe))
                 binding.ivFavourite.setColorFilter(
                     ContextCompat.getColor(requireContext(), R.color.black)
                 )
             }
+
             false -> {
                 viewModel.onEvent(DetailFragmentEvent.AddRecipeToFavourites(recipe))
                 binding.ivFavourite.setColorFilter(

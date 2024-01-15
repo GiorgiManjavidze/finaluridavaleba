@@ -33,9 +33,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val userInfo = snapshot.getValue(UserInfo::class.java)
-                        userInfo?.let {
-                            binding.tvEmail.text = it.email
-                        }
+                        binding.tvEmail.text = userInfo?.email
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -48,6 +46,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
     override fun listeners() {
         binding.buttonLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+            showAuthFragment()
         }
     }
+
+    private fun showAuthFragment() {
+        val navController = findNavController()
+        val action = ProfileFragmentDirections.actionProfileFragmentToAuthFragment()
+        navController.navigate(action)
+        navController.popBackStack(R.id.userFragment, false)
+    }
+
 }

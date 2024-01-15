@@ -40,19 +40,16 @@ class FavouriteFragmentViewModel @Inject constructor(private val favouriteUseCas
 
     private fun getRecipes() {
         viewModelScope.launch {
-            _favouriteRecipeState.update { it.copy(isLoading = true) }
             try {
                 _favouriteRecipeState.update {
                     it.copy(
                         favouriteRecipes = favouriteUseCase.getAllRecipes(),
-                        isLoading = false
                     )
                 }
             } catch (e: Exception) {
                 _favouriteRecipeState.update {
                     it.copy(
                         favouriteRecipes = null,
-                        isLoading = false,
                         errorMessage = updateErrorMessage(e.message)
                     )
                 }

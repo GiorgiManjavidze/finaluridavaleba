@@ -57,4 +57,8 @@
     <string name="consistency"><b>Consistency:</b></string>
     <string name="original"><b>Original:</b></string>
     <string name="log_out">Log out</string>
+    <string name="log_in">log in</string>
+    <string name="email_address">Email Address</string>
+    <string name="welcome">Welcome</string>
+    <string name="register_text">Register your account</string>
 </resources>

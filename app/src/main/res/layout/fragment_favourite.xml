@@ -5,32 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/lightGray">
 
-<!--    <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--        android:id="@+id/shimmerFrameLayout"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <include layout="@layout/item_favourite_recipe" />-->
-
-<!--            <include layout="@layout/item_favourite_recipe" />-->
-
-<!--            <include layout="@layout/item_favourite_recipe" />-->
-
-<!--            <include layout="@layout/item_favourite_recipe" />-->
-
-<!--        </LinearLayout>-->
-<!--    </com.facebook.shimmer.ShimmerFrameLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFavouriteRecipes"
@@ -42,21 +16,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:spanCount="1" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/recipes_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:clickable="true"
-        android:contentDescription="@string/filter"
-        android:focusable="true"
-        android:src="@drawable/ic_restaurant"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

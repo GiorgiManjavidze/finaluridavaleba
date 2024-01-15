@@ -19,21 +19,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/_4c85554942f826473deeb9fb7dce348" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="GO MAP"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
 
     </LinearLayout>
 
@@ -52,21 +42,14 @@
             android:orientation="vertical"
             android:padding="28dp">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_subrayada"
-                android:text="Register"
+                android:text="@string/register"
                 android:textColor="@color/colorPrimary"
                 android:textSize="32sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.7"
-                android:fontFamily="@font/montserrat_subrayada"
-                android:text="Please register with your information" />
 
             <View
                 android:layout_width="wrap_content"
@@ -77,10 +60,10 @@
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
                 android:fontFamily="@font/montserrat_subrayada"
-                android:text="Email Address"
+                android:text="@string/email_address"
                 android:textStyle="bold" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,41 +74,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
                 android:fontFamily="@font/montserrat_subrayada"
-                android:text="Password"
+                android:text="@string/password"
                 android:textStyle="bold" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/lock_24px"
                 android:inputType="textPassword" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:alpha="0.7"
-                    android:fontFamily="@font/montserrat_subrayada"
-                    android:text="Remember me" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="I forgot my password" />
-
-            </RelativeLayout>
 
             <View
                 android:layout_width="wrap_content"
@@ -135,8 +97,17 @@
                 android:id="@+id/buttonRegister"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="Register"
+                android:text="@string/register"
                 app:cornerRadius="32dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:alpha="0.7"
+                android:text="@string/log_in" />
 
 
         </LinearLayout>

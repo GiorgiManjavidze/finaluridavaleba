@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.foodapp.databinding.FragmentLoginBinding
 import com.example.foodapp.presentation.common.base.BaseFragment
 import com.example.foodapp.presentation.common.helper.Listener
@@ -33,7 +34,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
 
         binding.tvRegister.setOnClickListener {
-            LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            handleNavigationEvents(LoginNavigationEvents.NavigateToRegister)
         }
     }
 
@@ -73,15 +74,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
     }
 
-
     private fun handleNavigationEvents(event: LoginNavigationEvents) {
         when (event) {
             is LoginNavigationEvents.NavigateToHome -> {
-                LoginFragmentDirections.actionLoginFragmentToUserFragment()
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment())
             }
 
-            is LoginNavigationEvents.NavigateToRegister -> LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            is LoginNavigationEvents.NavigateToRegister -> {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+            }
         }
     }
-
 }

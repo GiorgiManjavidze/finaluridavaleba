@@ -38,9 +38,12 @@ class RecipeRepositoryImpl @Inject constructor(
         }.asResource { it.toDomain() }
     }
 
-    override suspend fun getFavourites(): List<FavouriteRecipeEntity> = favouriteRecipeDao.getAllRecipes()
+    override suspend fun getFavourites(): List<FavouriteRecipeEntity> =
+        favouriteRecipeDao.getAllRecipes()
 
-    override suspend fun addRecipe(recipe: FavouriteRecipeEntity) = favouriteRecipeDao.addRecipe(recipe)
+    override suspend fun addRecipe(recipe: FavouriteRecipeEntity) =
+        favouriteRecipeDao.addRecipe(recipe)
 
-    override suspend fun removeRecipe(recipe: FavouriteRecipeEntity) = favouriteRecipeDao.removeRecipe(recipe)
+    override suspend fun removeRecipe(recipe: FavouriteRecipeEntity) =
+        favouriteRecipeDao.removeRecipe(recipe)
 }

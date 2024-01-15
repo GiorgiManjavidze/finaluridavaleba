@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapp.data.common.ResourceApi
 import com.example.foodapp.domain.remote.use_case.recipe.GetRecipeByTitleUseCase
-import com.example.foodapp.presentation.event.home.HomeNavigationEvents
 import com.example.foodapp.presentation.event.search.SearchFragmentEvents
 import com.example.foodapp.presentation.event.search.SearchNavigationEvents
 import com.example.foodapp.presentation.mapper.toPresentation
@@ -18,7 +17,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchFragmentViewModel @Inject constructor(private val getRecipeByTitle: GetRecipeByTitleUseCase) : ViewModel(){
+class SearchFragmentViewModel @Inject constructor(private val getRecipeByTitle: GetRecipeByTitleUseCase) :
+    ViewModel() {
     private val _searchViewState = MutableStateFlow(SearchViewState(null))
     val searchViewState get() = _searchViewState
 
@@ -32,6 +32,7 @@ class SearchFragmentViewModel @Inject constructor(private val getRecipeByTitle: 
                 is SearchFragmentEvents.ItemClick -> {
                     updateNavigationEvent(SearchNavigationEvents.NavigateToDetails(event.id))
                 }
+
                 is SearchFragmentEvents.ResetErrorMessage -> updateErrorMessage(null)
             }
         }

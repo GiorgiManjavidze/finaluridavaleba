@@ -33,6 +33,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
         binding.buttonRegister.setOnClickListener {
             register()
         }
+
+        binding.tvLogin.setOnClickListener {
+            handleNavigationEvents(RegisterNavigationEvents.NavigateToLogin)
+        }
     }
 
     override fun observers() {

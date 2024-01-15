@@ -63,7 +63,6 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouri
         }
 
         state.errorMessage.let {
-//            binding.root.showSnackbar(it)
             viewModel.onEvent(FavouriteFragmentEvents.ResetErrorMessage)
         }
     }
